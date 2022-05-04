@@ -1,0 +1,189 @@
+// mixin
+@mixin borderCoopLs {
+	border: $border-green;
+	border-radius: 8px;
+}
+
+@mixin fontTitleLs($weight: 700) {
+	font-size: 36px;
+	line-height: 42px;
+	font-weight: $weight;
+}
+
+@mixin buttonLs {
+    border-radius: 6px;
+    background-color: $color-main;
+    color: $color-white;
+    @include fontBig;
+    padding: 8px 16px;
+}
+
+@mixin flexColCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+// main style
+.cooperation-ls {
+   font-family: 'Roboto', sans-serif;
+   color: $color-new-grey;
+}
+
+.cooperation-banner {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.banner {
+    &__wrp {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        max-width: 1920px;
+        height: 400px;
+        padding-right: 210px;
+        @include smallScreen {
+            padding-right: 110px;
+        }
+        @include smallestScreen {
+            padding-right: 50px;
+        }
+    }
+    &__img {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        object-fit: cover;
+    }
+    &__img-mob {
+        display: none;
+    }
+    &__info-wrp {
+        width: 100%;
+        max-width: 700px;
+        padding: 10px;
+        position: absolute;
+        background-color: rgba(57, 61, 56, 0.5);
+        text-align: end;
+    }
+    &__info-title {
+        @include fontSliderTitle;
+        color: $color-white;
+        margin-bottom: 24px;
+    }
+    &__info-title-mob {
+        display: none;
+    }
+    &__info-text {
+        @include fontMid;
+        color: $color-white;
+    }
+}
+
+.quality-ls {
+    &__wrp {
+        @include flexColCenter;
+        align-items: center;
+    }
+    &__title {
+        max-width: 940px;
+        width: 100%;
+        @include fontTitleLs;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    &__text-wrp {
+        width: 100%;
+        max-width: 759px;
+        @include borderCoopLs;
+        padding: 15px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 18px;
+    }
+    &__img-wrp {
+        margin-right: 24px;
+    }
+    &__img-mob {
+        display: none;
+    }
+    &__text {
+        @include fontMidHeader;
+        text-align: left;
+        max-width: 500px;
+        width: 100%;
+    }
+}
+
+.work-ls {
+    &__wrp {
+        max-width: 1920px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(2, auto);
+    }
+    &__opera-img-wrp {
+        position: relative;
+        height: 488px;
+        grid-row-start: 1;
+        grid-column-start: 2;
+    }
+    &__opera-img {
+        position: absolute;
+    }
+    &__opera-img-mob {
+        display: none;
+    }
+    &__opera-text {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        width: 100%;
+        max-width: 689px;
+        @include fontMidHeader;
+        text-align: right;
+        align-self: center;
+        justify-self: center;
+    }
+    &__airport-img-wrp {
+        position: relative;
+        height: 591px;
+    }
+    &__airport-img {
+        position: absolute;
+    }
+    &__airport-img-mob {
+        display: none;
+    }
+    &__partner-wrp {
+        width: 100%;
+        max-width: 689px;
+        @include fontMidHeader;
+        text-align: left;
+        @include flexColCenter;
+        justify-self: center;
+    }
+    &__partner-text {
+        margin-bottom: 48px;
+    }
+    &__partner-text-g {
+        color: $colorCard;
+        margin-bottom: 48px;
+    }
+    &__partner-button {
+        width: 100%;
+        max-width: 250px;
+        @include buttonLs;
+    }
+}
