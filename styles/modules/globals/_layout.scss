@@ -398,6 +398,10 @@
         @extend %margAuto;
         @extend %padd;
         margin-bottom: 40px;
+        @include _680 {
+            @include paddMob;
+            margin-bottom: 16px;
+        }
     }
     &__title {
         @extend %margAuto;
@@ -406,10 +410,19 @@
         max-width: 1090px;
         width: 100%;
         margin-bottom: 40px;
+        @include _680 {
+            @include fontMidHeader;
+            margin-bottom: 16px;
+        }
     }
     &__goods-wrp {
         @extend %flexCenterCenter;
         margin-bottom: 40px;
+    }
+    &__goods-img-wrp {
+        @include _680 {
+            display: none;
+        }
     }
     &__line {
         position: relative;
@@ -426,14 +439,29 @@
             width: 13px;
             height: 13px;
         }
+        @include _680 {
+            display: none;
+        }
     }
     &__block-wrp {
         @extend %flexSbCenter;
         @extend %boxContainerLs;
         padding: 16px;
+        @include _680 {
+            flex-direction: column;
+            justify-content: center;
+            padding: 10px;
+        }
     }
     &__block-icon-wrp {
         margin-right: 35px;
+        @include _1080 {
+            margin-right: 15px;
+        }
+        @include _680 {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
     }
     &__block-text-wrp {
         width: 100%;
@@ -443,10 +471,23 @@
     &__block-title {
         @include fontMidHeader;
         margin-bottom: 16px;
+        @include _960 {
+            font-size: 16px;
+            line-height: 20px;
+        }
+        @include _680 {
+            margin-bottom: 10px;
+        }
     }
     &__block-text {
         @include fontMid;
         margin-bottom: 16px;
+        @include _960 {
+            font-size: 14px;
+        }
+        @include _680 {
+            margin-bottom: 10px;
+        }
     }
     &__block-more {
         @include fontMid;
@@ -460,13 +501,35 @@
         @extend %margAuto;
         @extend %borderCoopLs;
         @extend %flexSbCenter;
+        @include _680 {
+            max-width: 450px;
+            padding: 16px 0;
+        }
+    }
+    &__img-wrp {
+        margin-right: 39px;
+        @include _680 {
+            margin-right: 10px;
+        }
+    }
+    &__img {
+        @include _680 {
+            display: none;
+        }
     }
     &__img-mob {
         display: none;
+        @include _680 {
+            display: block;
+        }
     }
     &__text {
         width: 100%;
         max-width: 519px;
         @include fontMidHeader;
+        @include _680 {
+            font-size: 14px;
+            line-height: 16px;
+        }
     }
 }
