@@ -1,5 +1,5 @@
 // mixin
-@mixin borderCoopLs {
+%borderCoopLs {
 	border: $border-green;
 	border-radius: 8px;
 }
@@ -10,7 +10,13 @@
 	font-weight: $weight;
 }
 
-@mixin buttonLs {
+@mixin fontTitleMobLs($weight: 500) {
+	font-size: 28px;
+	line-height: 46px;
+	font-weight: $weight;
+}
+
+%buttonLs {
     border-radius: 6px;
     background-color: $color-main;
     color: $color-white;
@@ -18,10 +24,57 @@
     padding: 8px 16px;
 }
 
-@mixin flexColCenter {
+%flexColCenter {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+%flexSbCenter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+%margAuto {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+%padd {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+@mixin paddMob {
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+@mixin _1376 {
+	@media (max-width: $smScreenWidth) {
+		@content;
+	}
+}
+
+@mixin _1080 {
+    @media (max-width: $smallestScreenWidth) {
+		@content;
+	}
+}
+
+@mixin _960 {
+    @media (max-width: $bigMobileWidth) {
+		@content;
+	}
+}
+
+@mixin _680 {
+    @media (max-width: $mobileWidth) {
+		@content;
+	}
 }
 
 
@@ -37,23 +90,31 @@
     display: flex;
     justify-content: center;
     margin-bottom: 35px;
+    @include _680 {
+        margin-bottom: 16px;
+    }
 }
 
 .banner {
     &__wrp {
         position: relative;
-        width: 100%;
+        @extend %padd;
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        max-width: 1920px;
         height: 400px;
         padding-right: 210px;
-        @include smallScreen {
+        @include _1376 {
             padding-right: 110px;
         }
-        @include smallestScreen {
+        @include _1080 {
             padding-right: 50px;
+        }
+        @include _960 {
+            padding-right: 16px;
+        }
+        @include _680 {
+            height: 213px;
         }
     }
     &__img {
@@ -63,17 +124,34 @@
         left: 0;
         top: 0;
         object-fit: cover;
+        @include _680 {
+            display: none;
+        }
     }
     &__img-mob {
         display: none;
+        @include _680 {
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            object-fit: cover;
+        }
     }
     &__info-wrp {
-        width: 100%;
         max-width: 700px;
         padding: 10px;
         position: absolute;
         background-color: rgba(57, 61, 56, 0.5);
         text-align: end;
+        @include _960 {
+            max-width: 500px;
+        }
+        @include _680 {
+            display: none;
+        }
     }
     &__info-title {
         @include fontSliderTitle;
@@ -82,6 +160,13 @@
     }
     &__info-title-mob {
         display: none;
+        @include _680 {
+            display: block;
+            @include fontTitleMobLs;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 16px;
+        }
     }
     &__info-text {
         @include fontMid;
@@ -91,8 +176,13 @@
 
 .quality-ls {
     &__wrp {
-        @include flexColCenter;
+        @extend %padd;
+        @extend %margAuto;
+        @extend %flexColCenter;
         align-items: center;
+        @include _680 {
+            @include paddMob;
+        }
     }
     &__title {
         max-width: 940px;
@@ -100,51 +190,100 @@
         @include fontTitleLs;
         text-align: center;
         margin-bottom: 40px;
+        @include _680 {
+            @include fontMid;
+            max-width: 355px;
+            margin-bottom: 16px;
+        }
     }
     &__text-wrp {
         width: 100%;
         max-width: 759px;
-        @include borderCoopLs;
+        @extend %borderCoopLs;
         padding: 15px 16px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @extend %flexSbCenter;
         margin-bottom: 18px;
+        @include _680 {
+            max-width: 355px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
     }
     &__img-wrp {
         margin-right: 24px;
+        @include _680 {
+            margin-right: 10px;
+        }
+    }
+    &__img {
+        @include _680 {
+            display: none;
+        }
     }
     &__img-mob {
         display: none;
+        @include _680 {
+            display: block;
+        }
     }
     &__text {
         @include fontMidHeader;
         text-align: left;
         max-width: 500px;
         width: 100%;
+        @include _680 {
+            @include fontSmall;
+        }
     }
 }
 
 .work-ls {
     &__wrp {
-        max-width: 1920px;
-        width: 100%;
-        margin: 0 auto;
+        max-width: 1532px;
+        @extend %margAuto;
+        @extend %padd;
         display: grid;
         grid-template-columns: repeat(2, auto);
         grid-template-rows: repeat(2, auto);
+        @include _960 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        @include _680 {
+            @include paddMob;
+        }
     }
     &__opera-img-wrp {
         position: relative;
         height: 488px;
         grid-row-start: 1;
         grid-column-start: 2;
+        @include _1376 {
+            height: 418px;
+        }
+        @include _1080 {
+            height: 398px;
+        }
+        @include _960 {
+            height: auto;
+            margin-bottom: 16px;
+        }
     }
     &__opera-img {
         position: absolute;
+        @include _960 {
+            position: static;
+        }
+        @include _680 {
+            display: none;
+        }
     }
     &__opera-img-mob {
         display: none;
+        @include _680 {
+            display: block;
+        }
     }
     &__opera-text {
         grid-row-start: 1;
@@ -155,35 +294,86 @@
         text-align: right;
         align-self: center;
         justify-self: center;
+        @include _960 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        @include _680 {
+            font-size: 16px;
+            line-height: 20px;
+            max-width: 355px;
+        }
     }
     &__airport-img-wrp {
         position: relative;
         height: 591px;
+        @include _1376 {
+            height: 471px;
+        }
+        @include _1080 {
+            height: 371px;
+        }
+        @include _960 {
+            height: auto;
+            margin-bottom: 16px;
+        }
     }
     &__airport-img {
         position: absolute;
+        @include _960 {
+            position: static;
+        }
+        @include _680 {
+            display: none;
+        }
     }
     &__airport-img-mob {
         display: none;
+        @include _680 {
+            display: block;
+        }
     }
     &__partner-wrp {
         width: 100%;
         max-width: 689px;
         @include fontMidHeader;
         text-align: left;
-        @include flexColCenter;
+        @extend %flexColCenter;
         justify-self: center;
+        @include _960 {
+            font-size: 18px;
+            text-align: center;
+            align-items: center;
+        }
+        @include _680 {
+            font-size: 16px;
+            line-height: 20px;
+            max-width: 355px;
+        }
     }
     &__partner-text {
         margin-bottom: 48px;
+        @include _960 {
+            margin-bottom: 24px;
+        }
+        @include _680 {
+            margin-bottom: 0;
+        }
     }
     &__partner-text-g {
         color: $colorCard;
         margin-bottom: 48px;
+        @include _960 {
+            margin-bottom: 24px;
+        }
+        @include _680 {
+            margin-bottom: 16px;
+        }
     }
     &__partner-button {
         width: 100%;
         max-width: 250px;
-        @include buttonLs;
+        @extend %buttonLs;
     }
 }
