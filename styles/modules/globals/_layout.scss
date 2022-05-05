@@ -36,6 +36,12 @@
     align-items: center;
 }
 
+%flexCenterCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 %margAuto {
     margin-right: auto;
     margin-left: auto;
@@ -45,6 +51,12 @@
     width: 100%;
     padding-left: 16px;
     padding-right: 16px;
+}
+
+%boxContainerLs {
+    border-radius: 8px;
+    box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.2);
+    background-color: $color-white;
 }
 
 @mixin paddMob {
@@ -180,8 +192,10 @@
         @extend %margAuto;
         @extend %flexColCenter;
         align-items: center;
+        margin-bottom: 18px;
         @include _680 {
             @include paddMob;
+            margin-bottom: 10px;
         }
     }
     &__title {
@@ -202,11 +216,9 @@
         @extend %borderCoopLs;
         padding: 15px 16px;
         @extend %flexSbCenter;
-        margin-bottom: 18px;
         @include _680 {
             max-width: 355px;
             padding: 10px;
-            margin-bottom: 10px;
         }
     }
     &__img-wrp {
@@ -245,10 +257,12 @@
         display: grid;
         grid-template-columns: repeat(2, auto);
         grid-template-rows: repeat(2, auto);
+        margin-bottom: 40px;
         @include _960 {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-bottom: 32px;
         }
         @include _680 {
             @include paddMob;
@@ -375,5 +389,84 @@
         width: 100%;
         max-width: 250px;
         @extend %buttonLs;
+    }
+}
+
+.product-ls {
+    &__wrp {
+        max-width: 1532px;
+        @extend %margAuto;
+        @extend %padd;
+        margin-bottom: 40px;
+    }
+    &__title {
+        @extend %margAuto;
+        @include fontTitleLs;
+        text-align: center;
+        max-width: 1090px;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    &__goods-wrp {
+        @extend %flexCenterCenter;
+        margin-bottom: 40px;
+    }
+    &__line {
+        position: relative;
+        height: 1px;
+        width: 90px;
+        background-color: $colorCard;
+        &::after {
+            content: "";
+            position: absolute;
+            right: -8px;
+            top: -6px;
+            border-radius: 50%;
+            background-color: $colorCard;
+            width: 13px;
+            height: 13px;
+        }
+    }
+    &__block-wrp {
+        @extend %flexSbCenter;
+        @extend %boxContainerLs;
+        padding: 16px;
+    }
+    &__block-icon-wrp {
+        margin-right: 35px;
+    }
+    &__block-text-wrp {
+        width: 100%;
+        max-width: 430px;
+        text-align: left;
+    }
+    &__block-title {
+        @include fontMidHeader;
+        margin-bottom: 16px;
+    }
+    &__block-text {
+        @include fontMid;
+        margin-bottom: 16px;
+    }
+    &__block-more {
+        @include fontMid;
+        text-decoration: underline;
+        color: $colorCard;
+        cursor: pointer;
+    }
+    &__text-wrp {
+        width: 100%;
+        max-width: 855px;
+        @extend %margAuto;
+        @extend %borderCoopLs;
+        @extend %flexSbCenter;
+    }
+    &__img-mob {
+        display: none;
+    }
+    &__text {
+        width: 100%;
+        max-width: 519px;
+        @include fontMidHeader;
     }
 }
