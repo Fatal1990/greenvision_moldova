@@ -16,6 +16,11 @@
 	font-weight: $weight;
 }
 
+@mixin fontBlockMob {
+    font-size: 14px;
+    line-height: 16px;
+}
+
 %buttonLs {
     border-radius: 6px;
     background-color: $color-main;
@@ -206,7 +211,7 @@
         margin-bottom: 40px;
         @include _680 {
             @include fontMid;
-            max-width: 355px;
+            max-width: 450px;
             margin-bottom: 16px;
         }
     }
@@ -217,7 +222,7 @@
         padding: 15px 16px;
         @extend %flexSbCenter;
         @include _680 {
-            max-width: 355px;
+            max-width: 450px;
             padding: 10px;
         }
     }
@@ -411,6 +416,7 @@
         width: 100%;
         margin-bottom: 40px;
         @include _680 {
+            max-width: 450px;
             @include fontMidHeader;
             margin-bottom: 16px;
         }
@@ -483,7 +489,7 @@
         @include fontMid;
         margin-bottom: 16px;
         @include _960 {
-            font-size: 14px;
+            @include fontBlockMob;
         }
         @include _680 {
             margin-bottom: 10px;
@@ -491,7 +497,7 @@
     }
     &__block-more {
         @include fontMid;
-        text-decoration: underline;
+        border-bottom: 1px solid $colorCard;
         color: $colorCard;
         cursor: pointer;
     }
@@ -500,16 +506,19 @@
         max-width: 855px;
         @extend %margAuto;
         @extend %borderCoopLs;
-        @extend %flexSbCenter;
+        @extend %flexCenterCenter;
+        gap: 39px;
         @include _680 {
             max-width: 450px;
-            padding: 16px 0;
+            padding: 12px 0;
+            gap: 10px;
         }
     }
     &__img-wrp {
-        margin-right: 39px;
+        width: 100%;
+        max-width: 296px;
         @include _680 {
-            margin-right: 10px;
+        max-width: 115px;
         }
     }
     &__img {
@@ -528,8 +537,207 @@
         max-width: 519px;
         @include fontMidHeader;
         @include _680 {
-            font-size: 14px;
-            line-height: 16px;
+        @include fontBlockMob;
+        }
+    }
+}
+
+.advantage-ls {
+    &__wrp {
+        max-width: 1532px;
+        @extend %margAuto;
+        @extend %padd;
+        @extend %flexColCenter;
+        gap: 30px;
+        @include _680 {
+            gap: 10px;
+            @include paddMob;
+        }
+    }
+    &__title {
+        width: 100%;
+        max-width: 980px;
+        @extend %margAuto;
+        @include fontTitleLs;
+        text-align: center;
+        @include _680 {
+            @include fontMidHeader;
+            max-width: 540px;
+        }
+    }
+    &__img-wrp {
+        @extend %margAuto;
+    }
+    &__img {
+        @include _680 {
+            display: none;
+        }
+    }
+    &__img-mob {
+        display: none;
+        @include _680 {
+            display: block;
+        }
+    }
+    &__block-list {
+        @extend %flexCenterCenter;
+        flex-wrap: wrap;
+        gap: 16px;
+        @include _680 {
+            gap: 11px;
+        }
+    }
+    &__block-wrp {
+        width: 100%;
+        max-width: 287px;
+        height: 342px;
+        padding: 0 20px;
+        @extend %boxContainerLs;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+        @include _680 {
+            max-width: 172px;
+            height: 295px;
+            gap: 10px;
+            padding: 11px 7px;
+        }
+    }
+    &__block-text {
+        @include fontMidHeader;
+        text-align: center;
+        @include _680 {
+            @include fontBlockMob;
+        }
+    }
+    &__foot-wrp {
+        @extend %flexCenterCenter;
+        gap: 16px;
+        @include _960 {
+            flex-direction: column;
+        }
+    }
+    &__iso-wrp {
+        width: 100%;
+        max-width: 670px;
+        height: 235px;
+        @extend %borderCoopLs;
+        @extend %flexCenterCenter;
+        gap: 39px;
+        padding: 41px 65px 41px 16px;
+        @include _1080 {
+            padding: 31px 40px 31px 16px;
+        }
+        @include _680 {
+            max-width: 450px;
+            height: 110px;
+            padding: 11px 10px;
+            gap: 10px;
+        }
+    }
+    &__iso-img-wrp {
+        width: 100%;
+        max-width: 155px;
+        @include _680 {
+            max-width: 86px;
+        }
+    }
+    &__iso-img {
+        @include _680 {
+            display: none;
+        }
+    }
+    &__iso-img-mob {
+        display: none;
+        @include _680 {
+            display: block;
+        }
+    }
+    &__iso-text {
+        @include fontMidHeader;
+        text-align: left;
+        @include _1080 {
+            font-size: 20px;
+        }
+        @include _680 {
+            @include fontBlockMob;
+        }
+    }
+    &__partner-wrp {
+        width: 100%;
+        max-width: 815px;
+        height: 235px;
+        @extend %flexCenterCenter;
+        gap: 39px;
+        border-radius: 8px;
+        box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.2);
+        background: radial-gradient(78.59% 778.17% at 1.35% 0%, #10D35E 0%, #0E54A7 100%);
+        padding: 4px 14px 4px 0;
+        @include _1080 {
+            gap: 19px;
+        }
+        @include _960 {
+            max-width: 670px;
+        }
+        @include _680 {
+            max-width: 450px;
+            height: auto;
+            flex-direction: column;
+            gap: 39px;
+            padding: 10px 7px;
+        }
+    }
+    &__partner-img-wrp {
+        width: 100%;
+        max-width: 257px;
+    }
+    &__partner-text-wrp {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        @include _680 {
+            align-items: center;
+        }
+    }
+    &__partner-title {
+        @include fontMidHeader;
+        text-align: left;
+        color: $color-white;
+        @include _1080 {
+            font-size: 20px;
+        }
+        @include _680 {
+            font-size: 24px;
+            text-align: center;
+        }
+    }
+    &__partner-text {
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 400;
+        text-align: left;
+        color: $color-white;
+        @include _1080 {
+            font-size: 18px;
+        }
+        @include _680 {
+            font-size: 16px;
+            line-height: 20px;
+            width: 70%;
+            text-align: center;
+        }
+    }
+    &__partner-button {
+        width: 100%;
+        max-width: 250px;
+        @extend %buttonLs;
+        background-color: $color-white;
+        color: $colorCard;
+        @include _680 {
+            max-width: 355px;
         }
     }
 }
