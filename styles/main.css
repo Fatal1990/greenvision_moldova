@@ -308,7 +308,7 @@ body .show-mob {
   border-radius: 8px;
 }
 
-.work-ls__partner-button, .advantage-ls__partner-button {
+.work-ls__partner-button, .advantage-ls__partner-button, .profit-ls__button {
   border-radius: 6px;
   background-color: #159822;
   color: #ffffff;
@@ -318,7 +318,7 @@ body .show-mob {
   padding: 8px 16px;
 }
 
-.quality-ls__wrp, .work-ls__partner-wrp, .advantage-ls__wrp {
+.quality-ls__wrp, .work-ls__partner-wrp, .advantage-ls__wrp, .profit-ls__text-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -360,7 +360,7 @@ body .show-mob {
   margin-left: auto;
 }
 
-.banner__wrp, .quality-ls__wrp, .work-ls__wrp, .product-ls__wrp, .advantage-ls__wrp {
+.banner-ls__wrp, .quality-ls__wrp, .work-ls__wrp, .product-ls__wrp, .advantage-ls__wrp {
   width: 100%;
   padding-left: 16px;
   padding-right: 16px;
@@ -394,7 +394,7 @@ body .show-mob {
   }
 }
 
-.banner__wrp {
+.banner-ls__wrp {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -410,30 +410,30 @@ body .show-mob {
 }
 
 @media (max-width: 1376px) {
-  .banner__wrp {
+  .banner-ls__wrp {
     padding-right: 110px;
   }
 }
 
 @media (max-width: 1080px) {
-  .banner__wrp {
+  .banner-ls__wrp {
     padding-right: 50px;
   }
 }
 
 @media (max-width: 960px) {
-  .banner__wrp {
+  .banner-ls__wrp {
     padding-right: 16px;
   }
 }
 
 @media (max-width: 680px) {
-  .banner__wrp {
+  .banner-ls__wrp {
     height: 213px;
   }
 }
 
-.banner__img {
+.banner-ls__img {
   height: 100%;
   width: 100%;
   position: absolute;
@@ -444,17 +444,17 @@ body .show-mob {
 }
 
 @media (max-width: 680px) {
-  .banner__img {
+  .banner-ls__img {
     display: none;
   }
 }
 
-.banner__img-mob {
+.banner-ls__img-mob {
   display: none;
 }
 
 @media (max-width: 680px) {
-  .banner__img-mob {
+  .banner-ls__img-mob {
     display: block;
     height: 100%;
     width: 100%;
@@ -466,7 +466,7 @@ body .show-mob {
   }
 }
 
-.banner__info-wrp {
+.banner-ls__info-wrp {
   max-width: 700px;
   padding: 10px;
   position: absolute;
@@ -475,18 +475,18 @@ body .show-mob {
 }
 
 @media (max-width: 960px) {
-  .banner__info-wrp {
+  .banner-ls__info-wrp {
     max-width: 500px;
   }
 }
 
 @media (max-width: 680px) {
-  .banner__info-wrp {
+  .banner-ls__info-wrp {
     display: none;
   }
 }
 
-.banner__info-title {
+.banner-ls__info-title {
   font-size: 48px;
   line-height: 46px;
   font-weight: 500;
@@ -495,19 +495,12 @@ body .show-mob {
   margin-bottom: 24px;
 }
 
-@media (max-width: 680px), (max-height: 600px) {
-  .banner__info-title {
-    font-size: 28px;
-    line-height: 33px;
-  }
-}
-
-.banner__info-title-mob {
+.banner-ls__info-title-mob {
   display: none;
 }
 
 @media (max-width: 680px) {
-  .banner__info-title-mob {
+  .banner-ls__info-title-mob {
     display: block;
     font-size: 28px;
     line-height: 46px;
@@ -518,7 +511,7 @@ body .show-mob {
   }
 }
 
-.banner__info-text {
+.banner-ls__info-text {
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
@@ -1073,6 +1066,7 @@ body .show-mob {
 .advantage-ls__wrp {
   max-width: 1532px;
   gap: 30px;
+  margin-bottom: 34px;
 }
 
 @media (max-width: 680px) {
@@ -1375,6 +1369,169 @@ body .show-mob {
 @media (max-width: 680px) {
   .advantage-ls__partner-button {
     max-width: 355px;
+  }
+}
+
+.profit-ls__wrp {
+  color: #ffffff;
+}
+
+.profit-ls__banner-wrp {
+  width: 100%;
+  height: 566px;
+  position: relative;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 680px) {
+  .profit-ls__banner-wrp {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 898px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+.profit-ls__img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 680px) {
+  .profit-ls__img {
+    display: none;
+  }
+}
+
+.profit-ls__img-mob {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .profit-ls__img-mob {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -o-object-fit: cover;
+       object-fit: cover;
+    display: block;
+  }
+}
+
+.profit-ls__text-container {
+  width: 100%;
+  max-width: 825px;
+  position: absolute;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-right: 210px;
+  gap: 24px;
+}
+
+@media (max-width: 1376px) {
+  .profit-ls__text-container {
+    margin-right: 70px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .profit-ls__text-container {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .profit-ls__text-container {
+    margin-right: 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 10px;
+    padding: 50px 8px 0 8px;
+  }
+}
+
+.profit-ls__title {
+  font-size: 48px;
+  line-height: 46px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 80px;
+  text-align: right;
+}
+
+@media (max-width: 680px) {
+  .profit-ls__title {
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+.profit-ls__text-wrp {
+  width: 100%;
+  max-width: 575px;
+}
+
+@media (max-width: 680px) {
+  .profit-ls__text-wrp {
+    max-width: 450px;
+  }
+}
+
+.profit-ls__text {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  text-align: right;
+}
+
+.profit-ls__text:nth-child(2) {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 680px) {
+  .profit-ls__text:nth-child(2) {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .profit-ls__text {
+    text-align: center;
+  }
+}
+
+.profit-ls__button {
+  width: 100%;
+  max-width: 191px;
+}
+
+@media (max-width: 680px) {
+  .profit-ls__button {
+    max-width: 250px;
   }
 }
 /*# sourceMappingURL=main.css.map */
