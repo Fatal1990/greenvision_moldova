@@ -76,6 +76,15 @@
     background-color: $color-white;
 }
 
+%dotGreenLs {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background-color: $colorCard;
+    width: 13px;
+    height: 13px;
+}
+
 @mixin paddMob {
     width: 100%;
     padding-left: 8px;
@@ -446,14 +455,9 @@
         width: 90px;
         background-color: $colorCard;
         &::after {
-            content: "";
-            position: absolute;
+            @extend %dotGreenLs;
             right: -8px;
             top: -6px;
-            border-radius: 50%;
-            background-color: $colorCard;
-            width: 13px;
-            height: 13px;
         }
         @include _680 {
             display: none;
@@ -759,15 +763,11 @@
         width: 100%;
         height: 566px;
         position: relative;
-        left: 0;
-        top: 0;
-        display: flex;
-        flex-direction: column;
+        @extend %flexColCenter;
         align-items: flex-end;
-        justify-content: center;
         @include _680 {
-            align-items: center;
             height: 898px;
+            align-items: center;
             justify-content: flex-start;
         }
     }
@@ -849,6 +849,67 @@
         @extend %buttonLs;
         @include _680 {
             max-width: 250px;
+        }
+    }
+}
+
+.b2b-ls {
+    &__banner-wrp {
+        width: 100%;
+        height: 864px;
+        position: relative;
+        @extend %flexColCenter;
+        align-items: flex-end;
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+    }
+    &__img-mob {
+        display: none;
+    }
+    &__text-container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 99px;
+        margin-right: 200px;
+    }
+    &__text-wrp {
+        width: 100%;
+        max-width: 818px;
+    }
+    &__title {
+        @include fontTitleLs;
+        text-align: left;
+        margin-bottom: 16px;
+    }
+    &__title-text {
+        font-size: 36px;
+        line-height: 42px;
+        font-weight: 400;
+        text-align: left;
+    }
+    &__text-list {
+        width: 100%;
+        max-width: 709px;
+        @extend %flexColCenter;
+        gap: 16px;
+    }
+    &__text-list-item {
+        position: relative;
+        @include fontMidHeader;
+        text-align: left;
+        @extend %boxContainerLs;
+        padding: 16px 14px 16px 45px;
+        &::before {
+            @extend %dotGreenLs;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
         }
     }
 }
