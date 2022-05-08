@@ -1,4 +1,4 @@
-// mixin
+// mixins and extends
 %borderCoopLs {
 	border: $border-green;
 	border-radius: 8px;
@@ -758,6 +758,9 @@
 .profit-ls {
     &__wrp {
         color: $color-white;
+        @include _680 {
+            margin-bottom: 5px;
+        }
     }
     &__banner-wrp {
         width: 100%;
@@ -854,21 +857,42 @@
 }
 
 .b2b-ls {
+    &__wrp {
+        margin-bottom: 58px;
+        @include _680 {
+            margin-bottom: 20px;
+        }
+    }
     &__banner-wrp {
         width: 100%;
         height: 864px;
         position: relative;
         @extend %flexColCenter;
         align-items: flex-end;
+        @include _680 {
+            position: static;
+            height: auto;
+        }
     }
     &__img {
         width: 100%;
         height: 100%;
         position: absolute;
         object-fit: cover;
+        @include _680 {
+            display: none;
+        }
+    }
+    &__img-mob-wrp {
+        display: none;
+        width: 100%;
+        @include _680 {
+            display: block;
+            margin-bottom: 16px;
+        }
     }
     &__img-mob {
-        display: none;
+        width: 100%;
     }
     &__text-container {
         position: absolute;
@@ -876,11 +900,30 @@
         flex-direction: column;
         align-items: end;
         gap: 99px;
-        margin-right: 200px;
+        margin-right: 100px;
+        @include _1376 {
+            margin-right: 50px;
+        }
+        @include _960 {
+            margin-right: 0;
+            padding-right: 16px;
+            padding-left: 16px;
+        }
+        @include _680 {
+            position: static;
+            @include paddMob;
+            align-items: center;
+        }
     }
     &__text-wrp {
         width: 100%;
         max-width: 818px;
+        @include _1376 {
+            max-width: 650px;
+        }
+        @include _680 {
+            display: none;
+        }
     }
     &__title {
         @include fontTitleLs;
@@ -898,6 +941,12 @@
         max-width: 709px;
         @extend %flexColCenter;
         gap: 16px;
+        @include _1376 {
+            max-width: 550px;
+        }
+        @include _680 {
+            gap: 10px;
+        }
     }
     &__text-list-item {
         position: relative;
@@ -910,6 +959,202 @@
             left: 16px;
             top: 50%;
             transform: translateY(-50%);
+            @include _680 {
+                left: 10px;
+            }
+        }
+        @include _680 {
+            @include font16Ls;
+            font-weight: 400;
+            padding: 10px 18px 10px 39px;
+        }
+    }
+}
+
+.request-ls {
+    &__wrp {
+        @extend %flexColCenter;
+        @extend %padd;
+        align-items: center;
+        gap: 50px;
+        @include _680 {
+            gap: 20px;
+            @include paddMob;
+        }
+    }
+    &__container {
+        @extend %flexCenterCenter;
+        gap: 16px;
+    }
+    &__img-wrp {
+        width: 100%;
+        @include _960 {
+            display: none;
+        }
+    }
+    &__img {
+        width: 100%;
+    }
+    &__form-container {
+        width: 100%;
+        max-width: 715px;
+        @extend %flexColCenter;
+        align-items: flex-start;
+        gap: 16px;
+        @include _1376 {
+            max-width: 450px;
+        }
+        @include _1080 {
+            gap: 12px;
+            max-width: 350px;
+        }
+        @include _960 {
+            max-width: 80%;
+        }
+        @include _680 {
+            max-width: 100%;
+        }
+    }
+    &__title {
+        @include fontMidHeader;
+        text-align: left;
+        @include _1080 {
+            font-size: 20px;
+            line-height: 22px;
+        }
+        @include _960 {
+            font-size: 24px;
+            line-height: 24px;
+            text-align: center;
+        }
+    }
+    &__title-text {
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 400;
+        text-align: left;
+        @include _1080 {
+            @include fontMid;
+        }
+    }
+    &__img-mob-wrp {
+        display: none;
+        @include _960 {
+            width: 100%;
+            display: block;
+        }
+    }
+    &__img-mob {
+        width: 100%;
+    }
+    &__form-wrp {
+        width: 100%;
+    }
+    &__form {
+        @extend %flexColCenter;
+        gap: 16px;
+        box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 16px;
+        @include _1080 {
+            gap: 12px;
+        }
+        @include _960 {
+            align-items: center
+        }
+    }
+    &__form-title {
+        @include fontMidHeader;
+        text-align: left;
+        color: $colorCard;
+    }
+    &__form-title-text {
+        max-width: 470px;
+        @include font16Ls;
+        font-weight: 400;
+        text-align: left;
+        @include _960 {
+            max-width: 340px;
+            text-align: center;
+        }
+        @include _680 {
+            @include fontBlockMob;
+        }
+    }
+    &__input-wrp {
+        width: 100%;
+    }
+    &__label {
+        @include fontCaption;
+        cursor: auto;
+    }
+    &__input {
+        width: 100%;
+        max-width: 679px;
+        height: 44px;
+        border: $borderForm;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 400;
+        padding: 0 12px;
+        &:focus {
+            border-color: $colorCard;
+        }
+    }
+    &__form-checkbox-wrp {
+        width: 100%;
+        max-width: 277px;
+        display: flex;
+        align-items: flex-start;
+    }
+    &__form-checkbox {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+    }
+    &__form-checkbox-style {
+        position: absolute;
+        margin-left: -26px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: $borderForm;
+        cursor: pointer;
+    }
+    &__form-checkbox:checked + .request-ls__form-checkbox-style::before {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: $colorCard;
+        border-radius: 50%;
+        left: 2px;
+        top: 2px;
+    }
+    &__form-checkbox-label {
+        max-width: 240px;
+        padding-left: 26px;
+    }
+    &__form-checkbox-private-policy {
+        color: $colorCard;
+    }
+    &__form-button {
+        width: 100%;
+        max-width: 261px;
+        @extend %buttonLs;
+        text-align: center;
+        @include _680 {
+            max-width: 336px;
+        }
+    }
+    &__end-text {
+        @include fontMidHeader;
+        color: $colorCard;
+        text-align: center;
+        @include _680 {
+            @include fontMid;
         }
     }
 }
