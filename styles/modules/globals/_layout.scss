@@ -1,6 +1,6 @@
 // mixins and extends
 %borderCoopLs {
-	border: $border-green;
+	border: $borderGreen;
 	border-radius: 8px;
 }
 
@@ -28,6 +28,12 @@
     line-height: 16px;
 }
 
+@mixin fontTextLs {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
 @mixin font16Ls {
     font-size: 16px;
     line-height: 20px;
@@ -36,7 +42,7 @@
 %buttonLs {
     border-radius: 6px;
     background-color: $color-main;
-    color: $color-white;
+    color: $colorWhite;
     @include fontBig;
     padding: 8px 16px;
 }
@@ -73,7 +79,7 @@
 %boxContainerLs {
     border-radius: 8px;
     box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.2);
-    background-color: $color-white;
+    background-color: $colorWhite;
 }
 
 %dotGreenLs {
@@ -124,7 +130,7 @@
    color: $color-new-grey;
 }
 
-.cooperation-banner {
+.cooperation-banner-ls {
     display: flex;
     justify-content: center;
     margin-bottom: 35px;
@@ -141,16 +147,6 @@
         align-items: center;
         justify-content: flex-end;
         height: 400px;
-        padding-right: 210px;
-        @include _1376 {
-            padding-right: 110px;
-        }
-        @include _1080 {
-            padding-right: 50px;
-        }
-        @include _960 {
-            padding-right: 16px;
-        }
         @include _680 {
             height: 213px;
         }
@@ -179,21 +175,25 @@
         }
     }
     &__info-wrp {
-        max-width: 700px;
-        padding: 10px;
-        position: absolute;
-        background-color: rgba(57, 61, 56, 0.5);
-        text-align: end;
-        @include _960 {
-            max-width: 500px;
-        }
+        position: relative;
+        width: 100%;
+        max-width: 1500px;
+        display: flex;
+        justify-content: flex-end;
+        @extend %margAuto;
         @include _680 {
             display: none;
         }
     }
+    &__info-container {
+        max-width: 700px;
+        padding: 10px;
+        background-color: rgba(57, 61, 56, 0.5);
+        text-align: end;
+    }
     &__info-title {
         @include fontBannerTitleLs;
-        color: $color-white;
+        color: $colorWhite;
         margin-bottom: 24px;
     }
     &__info-title-mob {
@@ -203,12 +203,11 @@
             @include fontTitleMobLs;
             text-transform: uppercase;
             text-align: center;
-            margin-bottom: 16px;
         }
     }
     &__info-text {
         @include fontMid;
-        color: $color-white;
+        color: $colorWhite;
     }
 }
 
@@ -219,8 +218,10 @@
         @extend %flexColCenter;
         align-items: center;
         margin-bottom: 18px;
+        gap: 40px;
         @include _680 {
             @include paddMob;
+            gap: 16px;
             margin-bottom: 10px;
         }
     }
@@ -229,11 +230,9 @@
         width: 100%;
         @include fontTitleLs;
         text-align: center;
-        margin-bottom: 40px;
         @include _680 {
             @include fontMid;
             max-width: 450px;
-            margin-bottom: 16px;
         }
     }
     &__text-wrp {
@@ -289,6 +288,7 @@
             flex-direction: column;
             align-items: center;
             margin-bottom: 32px;
+            gap: 16px;
         }
         @include _680 {
             @include paddMob;
@@ -307,7 +307,6 @@
         }
         @include _960 {
             height: auto;
-            margin-bottom: 16px;
         }
     }
     &__opera-img {
@@ -336,7 +335,6 @@
         justify-self: center;
         @include _960 {
             font-size: 18px;
-            margin-bottom: 16px;
             text-align: center;
         }
         @include _680 {
@@ -355,7 +353,6 @@
         }
         @include _960 {
             height: auto;
-            margin-bottom: 16px;
         }
     }
     &__airport-img {
@@ -380,31 +377,21 @@
         text-align: left;
         @extend %flexColCenter;
         justify-self: center;
+        gap: 48px;
         @include _960 {
             font-size: 18px;
             text-align: center;
             align-items: center;
+            gap: 24px;
         }
         @include _680 {
             @include font16Ls;
             max-width: 355px;
-        }
-    }
-    &__partner-text {
-        margin-bottom: 48px;
-        @include _960 {
-            margin-bottom: 24px;
-        }
-        @include _680 {
-            margin-bottom: 0;
+            gap: 0;
         }
     }
     &__partner-text-g {
         color: $colorCard;
-        margin-bottom: 48px;
-        @include _960 {
-            margin-bottom: 24px;
-        }
         @include _680 {
             margin-bottom: 16px;
         }
@@ -413,6 +400,9 @@
         width: 100%;
         max-width: 250px;
         @extend %buttonLs;
+        &:hover {
+            background-color: $colorHoverButton;
+        }
     }
 }
 
@@ -422,9 +412,12 @@
         @extend %margAuto;
         @extend %padd;
         margin-bottom: 40px;
+        @extend %flexColCenter;
+        gap: 40px;
         @include _680 {
             @include paddMob;
             margin-bottom: 16px;
+            gap: 10px;
         }
     }
     &__title {
@@ -433,16 +426,14 @@
         text-align: center;
         max-width: 1090px;
         width: 100%;
-        margin-bottom: 40px;
         @include _680 {
             max-width: 450px;
             @include fontMidHeader;
-            margin-bottom: 16px;
+            margin-bottom: 6px;
         }
     }
     &__goods-wrp {
         @extend %flexCenterCenter;
-        margin-bottom: 40px;
     }
     &__goods-img-wrp {
         @include _680 {
@@ -467,45 +458,37 @@
         @extend %flexSbCenter;
         @extend %boxContainerLs;
         padding: 16px;
+        gap: 35px;
+        @include _1080 {
+            gap: 10px;
+        }
         @include _680 {
             flex-direction: column;
             justify-content: center;
             padding: 10px;
         }
     }
-    &__block-icon-wrp {
-        margin-right: 35px;
-        @include _1080 {
-            margin-right: 15px;
-        }
-        @include _680 {
-            margin-right: 0;
-            margin-bottom: 10px;
-        }
-    }
     &__block-text-wrp {
         width: 100%;
         max-width: 430px;
+        @extend %flexColCenter;
+        align-items: flex-start;
+        gap: 16px;
         text-align: left;
+        @include _680 {
+            gap: 10px;
+        }
     }
     &__block-title {
         @include fontMidHeader;
-        margin-bottom: 16px;
         @include _960 {
             @include font16Ls;
-        }
-        @include _680 {
-            margin-bottom: 10px;
         }
     }
     &__block-text {
         @include fontMid;
-        margin-bottom: 16px;
         @include _960 {
             @include fontBlockMob;
-        }
-        @include _680 {
-            margin-bottom: 10px;
         }
     }
     &__block-more {
@@ -513,6 +496,10 @@
         border-bottom: 1px solid $colorCard;
         color: $colorCard;
         cursor: pointer;
+        &:hover {
+            color: $colorHoverButton;
+            border-color: $colorHoverButton;
+        }
     }
     &__text-wrp {
         width: 100%;
@@ -719,7 +706,7 @@
     &__partner-title {
         @include fontMidHeader;
         text-align: left;
-        color: $color-white;
+        color: $colorWhite;
         @include _1080 {
             font-size: 20px;
         }
@@ -729,11 +716,9 @@
         }
     }
     &__partner-text {
-        font-size: 20px;
-        line-height: 24px;
-        font-weight: 400;
+        @include fontTextLs;
         text-align: left;
-        color: $color-white;
+        color: $colorWhite;
         @include _1080 {
             font-size: 18px;
         }
@@ -747,7 +732,7 @@
         width: 100%;
         max-width: 250px;
         @extend %buttonLs;
-        background-color: $color-white;
+        background-color: $colorWhite;
         color: $colorCard;
         @include _680 {
             max-width: 355px;
@@ -757,7 +742,7 @@
 
 .profit-ls {
     &__wrp {
-        color: $color-white;
+        color: $colorWhite;
         @include _680 {
             margin-bottom: 5px;
         }
@@ -795,18 +780,13 @@
     }
     &__text-container {
         width: 100%;
-        max-width: 825px;
-        position: absolute;
+        max-width: 1500px;
+        position: relative;
         @extend %flexColCenter;
         align-items: flex-end;
-        margin-right: 210px;
         gap: 24px;
-        @include _1376 {
-            margin-right: 70px;
-        }
-        @include _1080 {
-            margin-right: 20px;
-        }
+        @extend %margAuto;
+        @extend %padd;
         @include _680 {
             margin-right: 0;
             align-items: center;
@@ -853,6 +833,9 @@
         @include _680 {
             max-width: 250px;
         }
+        &:hover {
+            background-color: $colorHoverButton;
+        }
     }
 }
 
@@ -895,20 +878,15 @@
         width: 100%;
     }
     &__text-container {
-        position: absolute;
+        position: relative;
+        max-width: 1500px;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: end;
+        @extend %margAuto;
+        @extend %padd;
         gap: 99px;
-        margin-right: 100px;
-        @include _1376 {
-            margin-right: 50px;
-        }
-        @include _960 {
-            margin-right: 0;
-            padding-right: 16px;
-            padding-left: 16px;
-        }
         @include _680 {
             position: static;
             @include paddMob;
@@ -1029,9 +1007,7 @@
         }
     }
     &__title-text {
-        font-size: 20px;
-        line-height: 24px;
-        font-weight: 400;
+        @include fontTextLs;
         text-align: left;
         @include _1080 {
             @include fontMid;
@@ -1107,8 +1083,15 @@
         display: flex;
         align-items: flex-start;
     }
+    &__form-checkbox-label {
+        position: relative;
+        max-width: 240px;
+        padding-left: 26px;
+    }
     &__form-checkbox {
         position: absolute;
+        left: 4px;
+        top: 4px;
         width: 1px;
         height: 1px;
         overflow: hidden;
@@ -1133,10 +1116,6 @@
         left: 2px;
         top: 2px;
     }
-    &__form-checkbox-label {
-        max-width: 240px;
-        padding-left: 26px;
-    }
     &__form-checkbox-private-policy {
         color: $colorCard;
     }
@@ -1147,6 +1126,9 @@
         text-align: center;
         @include _680 {
             max-width: 336px;
+        }
+        &:hover {
+            background-color: $colorHoverButton;
         }
     }
     &__end-text {
